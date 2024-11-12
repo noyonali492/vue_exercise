@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My first Vue page</title>
+  <title>v-bind font-size</title>
   <style>
-    #app {
-      display: inline-block;
-      padding: 10px;
-      font-size: x-large;
-      background-color: lightgreen;
+    #app > div {
+      width: 200px;
+      padding: 20px;
+      border: dashed black 1px;
+      background-color: lightcoral;
     }
   </style>
 </head>
 <body>
 
-<h1>Vue Example</h1>
+<h1>'v-bind' Font Size Example</h1>
 
-<p>The message is taken from 'data' inside the Vue instance by writing {{ status }} inside the div with id="app".</p>
+<p>The browser sets the font-size based on the value of 'size' in the Vue instance.</p>
 
 <div id="app">
-  {{ status }}
+ <div v-bind:style="{fontSize: size}">example v-bind inline style</div>
 </div>
 
+
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
 <script>
-
-    const app= Vue.createApp({
-        data(){
-            return{
-                status:"Hello World Noyon"
-            }
-        }
-    })
-    app.mount('#app')
-
+  const app = Vue.createApp({
+   data() {
+    return {
+      size: '28px'
+    }
+   }
+  })
+  app.mount('#app')
 </script>
 
 </body>
