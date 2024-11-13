@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>v-show</title>
+  <title>My first Vue page</title>
   <style>
-    #app {
-      border: black dashed 1px;
-      width: 200px;
-      padding: 0 20px 20px 20px;
-    }
-    #app div {
-      padding: 20px;
+    #app > div {
+      display: inline-block;
+      border: dashed black 1px;
+      padding: 10px;
       background-color: lightgreen;
+    }
+    #app p {
       font-weight: bold;
+      margin: 5px 0;
     }
   </style>
 </head>
 <body>
 
-<h1>Example: v-show Visibility of Div Element</h1>
+<h1>Example: Get the array element index with 'v-for'</h1>
+<p>The 'v-for' directive is used to get the index  and food name of elements inside the 'manyFoods' array in the Vue instance.</p>
 
 <div id="app">
-  <p>Find the 'showDiv' data property in the code, change it to 'false', and run the code again.</p>
-  <div v-if="noyon>3" >nn</div>
-  <div v-else="noyon>0" >mm</div>
-  
-  <div v-show="showDiv">This div tag can be hidden</div>
+  <div>
+    <p v-for="(x, index) in manyFoods">
+      {{ index }}: "{{ x }}" <br>
+    </p>
+  </div>
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script>
   const app = Vue.createApp({
-    data() {
-      return {
-        noyon: 5,
-        showDiv : true
-      }
+   data() {
+    return {
+      manyFoods: [
+        'Burrito',
+        'Salad',
+        'Cake',
+        'Soup',
+        'Fish',
+        'Pizza',
+        'Rice'
+      ]
     }
+   }
   })
- app.mount('#app')
+  app.mount('#app')
 </script>
 
 </body>
